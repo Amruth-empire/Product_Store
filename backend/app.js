@@ -7,10 +7,11 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
+const PORT=process.env.PORT || 5000;
 
 app.use('/products',productrouter)
 
-app.listen(5000, () => {
+app.listen(PORT, () => {
   connectDB();
-  console.log("Server started at http://localhost:5000");
+  console.log(`Server started at http://localhost:${PORT}`);
 });
