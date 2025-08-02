@@ -1,6 +1,7 @@
 "use client";
 
-import { SunIcon, PlusIcon, ShoppingCartIcon } from "@heroicons/react/24/outline";
+import { PlusIcon, ShoppingCartIcon } from "@heroicons/react/24/outline";
+import ThemeToggleButton from "./ui/theme-toggle-button";
 
 export default function Header() {
   return (
@@ -10,13 +11,11 @@ export default function Header() {
         <ShoppingCartIcon className="w-5 h-5 text-blue-400" />
       </div>
 
-      <div className="flex items-center gap-3 bg-gray-700 px-3 py-2 rounded-xl">
-        <button className="hover:bg-gray-600 p-2 rounded-md">
+      <div className="flex items-center gap-3">
+        <button className="bg-gray-600 p-2 rounded-md hover:bg-gray-500">
           <PlusIcon className="w-5 h-5 text-white" />
         </button>
-        <button className="hover:bg-gray-600 p-2 rounded-md">
-          <SunIcon className="w-5 h-5 text-white" />
-        </button>
+    <ThemeToggleButton /> 
       </div>
     </header>
   );
