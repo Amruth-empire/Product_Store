@@ -8,6 +8,15 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
+app.get("/products", async (req, res) => {
+  const products = await productmodel.find({});
+  try {
+    res.status(201).json({ success: true, data: products });
+  } catch (error) {
+    res.status(500).json({ success: false, message: "Server Error" });
+  }
+});
+
 app.post("/products", async (req, res) => {
   const product = req.body; // user will send this data
 
@@ -38,9 +47,6 @@ app.delete("/api/products/:id", async (req, res) => {
     res.status(404).json({ success: false, message: "Product not found" });
   }
 });
-
-
-console.log(process.env.MONGO_URI);
 
 app.listen(5000, () => {
   connectDB();
