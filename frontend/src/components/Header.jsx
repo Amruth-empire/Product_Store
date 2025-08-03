@@ -15,7 +15,10 @@ export default function Header() {
         <button className="bg-gray-600 p-2 rounded-md hover:bg-gray-500">
           <PlusIcon className="w-5 h-5 text-white" />
         </button>
-    <ThemeToggleButton /> 
+
+        <div className="bg-gray-600 hover:bg-gray-500 rounded-md">
+          <ThemeToggleButton />
+        </div>
       </div>
     </header>
   );
