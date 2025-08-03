@@ -4,12 +4,18 @@ import { useState } from "react";
 import axiosInstance from "@/lib/axiosInstance.js";
 import { toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useProductContext } from "@/context/ProductContext";
 
 export default function CreateProductPage() {
+
+const { addProduct } = useProductContext();
+
+
   const [productName, setProductName] = useState("");
   const [price, setPrice] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [loading, setLoading] = useState(false);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,6 +41,7 @@ export default function CreateProductPage() {
         theme: "dark",
         transition: Bounce,
       });
+      addProduct(response.data.data);
       setProductName("");
       setPrice("");
       setImageUrl("");
@@ -51,13 +58,14 @@ export default function CreateProductPage() {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "light",
+        theme: "dark",
         transition: Bounce,
       });
     } finally {
       setLoading(false);
     }
   };
+
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 bg-white dark:bg-gray-900 text-black dark:text-white transition-colors">

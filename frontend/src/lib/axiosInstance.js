@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:5000", // Your backend base URL
+  baseURL: "/api", // Proxy path, not actual backend URL
   headers: {
     "Content-Type": "application/json",
   },

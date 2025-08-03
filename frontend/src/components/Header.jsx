@@ -8,12 +8,15 @@ export default function Header() {
   return (
     <header className="flex items-center justify-between px-6 py-4 bg-gray-800 shadow-md">
       <div className="flex items-center gap-2 border border-blue-400 px-4 py-2 rounded-md text-blue-400 font-semibold text-lg">
-        PRODUCT STORE
+        <Link href="/">PRODUCT STORE</Link>
         <ShoppingCartIcon className="w-5 h-5 text-blue-400" />
       </div>
 
       <div className="flex items-center gap-3">
-        <Link href="/Create" className="bg-gray-600 p-2 rounded-md hover:bg-gray-500">
+        <Link
+          href="/Create"
+          className="bg-gray-600 p-2 rounded-md hover:bg-gray-500"
+        >
           <PlusIcon className="w-5 h-5 text-white" />
         </Link>
 
