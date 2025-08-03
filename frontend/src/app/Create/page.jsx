@@ -21,13 +21,13 @@ export default function CreateProductPage() {
     try {
       setLoading(true);
       const response=await axiosInstance.post('/api/products',newproduct);
-       console.log("✅ Product created:", response.data.message);
+       console.log("✅ Product created:", response.data);
       alert("✅ Product added!");
       setProductName("");
       setPrice("");
       setImageUrl("");
     } catch (error) {
-      console.error("❌ Error adding product:", error.response?.data || error.message);
+      console.log("❌ Error adding product:", error.response?.data || error.message);
       alert("Failed to add product");
     } finally {
       setLoading(false);
