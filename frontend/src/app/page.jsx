@@ -2,8 +2,8 @@
 
 import React from "react";
 import { useProductContext } from "@/context/ProductContext";
-import ProductCard from "@/components/Productscard";
 import Link from "next/link";
+import ProductCardList from "@/components/ProductscardList";
 
 const Allproducts = () => {
   const { products } = useProductContext();
@@ -32,7 +32,7 @@ const Allproducts = () => {
         ) : (
           <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-6">
             {products.map((product, index) => (
-              <ProductCard key={index} index={index} {...product} />
+              <ProductCardList key={index} index={index} {...product} />
             ))}
           </div>
         )}
