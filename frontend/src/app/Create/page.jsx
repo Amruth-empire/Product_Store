@@ -1,24 +1,44 @@
 "use client";
+
 import { useState } from "react";
+import axiosInstance from "@/lib/axiosInstance.js"
 
 export default function CreateProductPage() {
   const [productName, setProductName] = useState("");
   const [price, setPrice] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // You can replace this with actual backend logic
-    console.log({ productName, price, imageUrl });
-    alert("Product added!");
-    setProductName("");
-    setPrice("");
-    setImageUrl("");
+
+    const newproduct = {
+      name: productName,
+      price: parseFloat(price),
+      image: imageUrl,
+    };
+
+    try {
+      setLoading(true);
+      const response=await axiosInstance.post('/api/products',newproduct);
+       console.log("✅ Product created:", response.data.message);
+      alert("✅ Product added!");
+      setProductName("");
+      setPrice("");
+      setImageUrl("");
+    } catch (error) {
+      console.error("❌ Error adding product:", error.response?.data || error.message);
+      alert("Failed to add product");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 bg-white dark:bg-gray-900 text-black dark:text-white transition-colors">
-      <h1 className="text-3xl md:text-4xl font-bold mb-8">Create New Product</h1>
+      <h1 className="text-3xl md:text-4xl font-bold mb-8">
+        Create New Product
+      </h1>
 
       <form
         onSubmit={handleSubmit}
@@ -55,7 +75,7 @@ export default function CreateProductPage() {
           type="submit"
           className="w-full py-2 bg-blue-400 dark:bg-blue-600 text-black dark:text-white font-semibold rounded-md hover:bg-blue-500 dark:hover:bg-blue-700 transition-colors"
         >
-          Add Product
+          {loading ? "Adding..." : "Add Product"}
         </button>
       </form>
     </div>
