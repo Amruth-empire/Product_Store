@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import axiosInstance from "@/lib/axiosInstance.js"
+import axiosInstance from "@/lib/axiosInstance.js";
+import { toast, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function CreateProductPage() {
   const [productName, setProductName] = useState("");
@@ -20,15 +22,38 @@ export default function CreateProductPage() {
 
     try {
       setLoading(true);
-      const response=await axiosInstance.post('/api/products',newproduct);
-       console.log("✅ Product created:", response.data);
-      alert("✅ Product added!");
+      const response = await axiosInstance.post("/api/products", newproduct);
+      console.log("✅ Product created:", response.data);
+      toast.success("✅ Product added successfully", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Bounce,
+      });
       setProductName("");
       setPrice("");
       setImageUrl("");
     } catch (error) {
-      console.log("❌ Error adding product:", error.response?.data || error.message);
-      alert("Failed to add product");
+      console.log(
+        "❌ Error adding product:",
+        error.response?.data || error.message
+      );
+      toast.error("Failed to add product", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
     } finally {
       setLoading(false);
     }

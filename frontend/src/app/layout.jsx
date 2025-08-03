@@ -2,6 +2,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { ToastContainer } from 'react-toastify';
 
 export const metadata = {
   title: "Product Store",
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
           {children}
           <Footer />
         </ThemeProvider>
+         <ToastContainer />
       </body>
     </html>
   );
