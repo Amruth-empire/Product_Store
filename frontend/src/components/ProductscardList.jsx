@@ -5,7 +5,7 @@ import { useProductContext } from "@/context/ProductContext";
 import axiosInstance from "@/lib/axiosInstance";
 import { toast, Bounce } from "react-toastify";
 import ProductCardEdit from "./ProductCardEdit";
-import ProductCardDisplay from "./ProductCardDelete";
+import ProductCardDelete from "./ProductCardDelete";
 
 const ProductCardList = ({ _id, name, price, image }) => {
   const { deleteProduct, editProduct } = useProductContext();
@@ -86,7 +86,7 @@ const ProductCardList = ({ _id, name, price, image }) => {
           loading={loading}
         />
       ) : (
-        <ProductCardDisplay
+        <ProductCardDelete
           name={name}
           price={price}
           image={image}
