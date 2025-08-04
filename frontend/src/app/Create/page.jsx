@@ -5,8 +5,11 @@ import axiosInstance from "@/lib/axiosInstance.js";
 import { toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useProductContext } from "@/context/ProductContext";
+import { useRouter } from "next/navigation";
 
 export default function CreateProductPage() {
+
+const router=useRouter();
 
 const { addProduct } = useProductContext();
 
@@ -30,6 +33,7 @@ const { addProduct } = useProductContext();
       setLoading(true);
       const response = await axiosInstance.post("/api/products", newproduct);
       console.log("✅ Product created:", response.data);
+      router.push("/");
       toast.success("✅ Product added successfully", {
         position: "top-center",
         autoClose: 3000,
