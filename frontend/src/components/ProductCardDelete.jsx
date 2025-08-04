@@ -13,7 +13,9 @@ const ProductCardDelete = ({ _id, name, price, image, onEdit, onDeleted }) => {
 
     try {
       setDeleting(true);
+      console.log("Deleting product with ID:", _id);
       const response = await axiosInstance.delete(`/api/products/${_id}`);
+      console.log(response.data);
 
       toast.success("🗑️ Product deleted successfully", {
         position: "top-center",
@@ -25,7 +27,7 @@ const ProductCardDelete = ({ _id, name, price, image, onEdit, onDeleted }) => {
       // Trigger update in parent state
       onDeleted?.(_id);
     } catch (error) {
-      console.error("❌ Error deleting product:", {
+      console.log("❌ Error deleting product:", {
         message: error.message,
         status: error?.response?.status,
         data: error?.response?.data,

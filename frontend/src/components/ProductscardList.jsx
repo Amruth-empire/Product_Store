@@ -87,11 +87,12 @@ const ProductCardList = ({ _id, name, price, image }) => {
         />
       ) : (
         <ProductCardDelete
+          _id={_id}
           name={name}
           price={price}
           image={image}
           onEdit={() => setIsEditing(true)}
-          onDelete={() => deleteProduct(_id)}
+          onDeleted={() => deleteProduct(_id)}
         />
       )}
     </div>
