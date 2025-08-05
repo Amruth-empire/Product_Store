@@ -28,7 +28,7 @@ export default function CreateProductPage() {
 
     try {
       setLoading(true);
-      const response = await axiosInstance.post("/products", newproduct);
+      const response = await axiosInstance.post("/proucts", newproduct);
       console.log("✅ Product created:", response.data);
       router.push("/");
       toast.success("✅ Product added successfully", {
@@ -48,7 +48,7 @@ export default function CreateProductPage() {
       setImageUrl("");
     } catch (error) {
       console.log("❌ Error adding product:", error);
-      toast.error("Failed to add product", {
+      toast.error(error.message,{
         position: "top-center",
         autoClose: 3000,
         hideProgressBar: false,
