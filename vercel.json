@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "buildCommand": "pnpm --filter frontend... build",
+  "outputDirectory": "frontend/.next",
+  "installCommand": "pnpm install",
+  "framework": "nextjs",
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "server.js"
+    }
+  ]
+}
