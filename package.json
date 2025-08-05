@@ -1,0 +1,44 @@
+{
+  "name": "product_store",
+  "version": "1.0.0",
+  "description": "Fullstack Product Store using Express and Next.js",
+  "main": "server.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development node server.js",
+    "build": "cd frontend && pnpm install && pnpm run build",
+    "start": "cross-env NODE_ENV=production node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amruth-empire/Product_Store.git"
+  },
+  "keywords": [],
+  "author": "Amruth M S",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Amruth-empire/Product_Store/issues"
+  },
+  "homepage": "https://github.com/Amruth-empire/Product_Store#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.21.2",
+    "mongoose": "^8.17.0",
+    "next": "^14.2.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "cross-env": "^10.0.0",
+    "nodemon": "^3.1.10"
+  },
+  "pnpm": {
+    "overrides": {
+      "next": "14.2.4",
+      "react": "18.3.1",
+      "react-dom": "18.3.1"
+    }
+  }
+}

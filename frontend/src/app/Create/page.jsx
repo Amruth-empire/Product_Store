@@ -8,17 +8,14 @@ import { useProductContext } from "@/context/ProductContext";
 import { useRouter } from "next/navigation";
 
 export default function CreateProductPage() {
+  const router = useRouter();
 
-const router=useRouter();
-
-const { addProduct } = useProductContext();
-
+  const { addProduct } = useProductContext();
 
   const [productName, setProductName] = useState("");
   const [price, setPrice] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [loading, setLoading] = useState(false);
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,7 +28,7 @@ const { addProduct } = useProductContext();
 
     try {
       setLoading(true);
-      const response = await axiosInstance.post("/api/products", newproduct);
+      const response = await axiosInstance.post("/products", newproduct);
       console.log("✅ Product created:", response.data);
       router.push("/");
       toast.success("✅ Product added successfully", {
@@ -50,10 +47,7 @@ const { addProduct } = useProductContext();
       setPrice("");
       setImageUrl("");
     } catch (error) {
-      console.log(
-        "❌ Error adding product:",
-        error.response?.data || error.message
-      );
+      console.log("❌ Error adding product:", error);
       toast.error("Failed to add product", {
         position: "top-center",
         autoClose: 3000,
@@ -69,7 +63,6 @@ const { addProduct } = useProductContext();
       setLoading(false);
     }
   };
-
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 bg-white dark:bg-gray-900 text-black dark:text-white transition-colors">

@@ -25,7 +25,7 @@ const ProductCardList = ({ _id, name, price, image }) => {
 
     try {
       setLoading(true);
-      const response = await axiosInstance.put(`/api/products/${_id}`, updated);
+      const response = await axiosInstance.put(`/products/${_id}`, updated);
 
       toast.success("✅ Product updated successfully", {
         position: "top-center",

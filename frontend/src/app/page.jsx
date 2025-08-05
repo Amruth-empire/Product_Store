@@ -6,12 +6,24 @@ import Link from "next/link";
 import ProductCardList from "@/components/ProductscardList";
 
 const Allproducts = () => {
-  const { products } = useProductContext();
+  const { products, loading } = useProductContext();
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-black text-black dark:text-white">
+        <p>Loading products...</p>
+      </div>
+    );
+  }
 
   const hasNoProducts = products.length === 0;
 
   return (
-    <div className={`min-h-screen bg-white dark:bg-black transition-colors px-6 py-10 ${hasNoProducts ? "flex items-center justify-center" : ""}`}>
+    <div
+      className={`min-h-screen bg-white dark:bg-black transition-colors px-6 py-10 ${
+        hasNoProducts ? "flex items-center justify-center" : ""
+      }`}
+    >
       <div className="w-full text-center">
         <h1 className="text-2xl md:text-3xl text-blue-600 dark:text-blue-400 font-semibold mb-6 flex justify-center items-center gap-2">
           Current Products <span>🚀</span>
@@ -40,5 +52,6 @@ const Allproducts = () => {
     </div>
   );
 };
+
 
 export default Allproducts;
