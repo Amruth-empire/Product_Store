@@ -28,7 +28,7 @@ export default function CreateProductPage() {
 
     try {
       setLoading(true);
-      const response = await axiosInstance.post("/proucts", newproduct);
+      const response = await axiosInstance.post("/products", newproduct);
       console.log("✅ Product created:", response.data);
       router.push("/");
       toast.success("✅ Product added successfully", {
