@@ -104,13 +104,6 @@ App and API run together at:
 
 ---
 
-## 📸 UI Snapshot
-
-![App UI](./frontend/public/preview.png)
-> Add your UI screenshot here if needed
-
----
-
 ## 📬 Feedback
 
 If you have feedback or find a bug, feel free to open an issue or submit a PR.
