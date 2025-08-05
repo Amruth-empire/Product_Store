@@ -48,7 +48,7 @@ export default function CreateProductPage() {
       setImageUrl("");
     } catch (error) {
       console.log("❌ Error adding product:", error);
-      toast.error(error.message,{
+      toast.error(error,{
         position: "top-center",
         autoClose: 3000,
         hideProgressBar: false,
