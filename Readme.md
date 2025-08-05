@@ -1,9 +1,8 @@
-
 # 🛍️ Product Store App
 
-A full-stack product management application with modern frontend and backend technologies.  
+A full-stack product management application using modern frontend and backend technologies.  
 Built using **Next.js** and **Tailwind CSS** for the frontend, and **Node.js** with **Express.js** for the backend API.  
-Users can view, edit, and delete products through a clean, responsive interface.
+Users can view, add, edit, and delete products through a clean, responsive interface — all running on a single port.
 
 ---
 
@@ -19,7 +18,7 @@ Users can view, edit, and delete products through a clean, responsive interface.
 - [Node.js](https://nodejs.org/)
 - [Express.js](https://expressjs.com/)
 - RESTful API with full CRUD operations
-- MongoDB with Mongoose (if using a database)
+- MongoDB with Mongoose (optional for DB persistence)
 
 ---
 
@@ -41,75 +40,79 @@ Product_Store/
 │   ├── lib/
 │   └── tailwind.config.js
 │
-├── .env
+├── .env                   # Environment config
+├── server.js              # Single entry for fullstack app
 └── README.md
 ```
 
 ---
 
-🚀 Getting Started
-
-## 🧩 Backend Setup (Node.js + Express)
+## 🚀 Getting Started
 
 ### 🔧 Install dependencies
 
 ```bash
-cd backend
-npm install
+# From root folder
+pnpm install
 ```
 
-### ▶️ Start the backend server
+### ⚙️ Setup environment variables
 
-```bash
-npm run dev
+In the root `.env` file:
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:5000/api
+PORT=5000
 ```
 
-API runs on: `http://localhost:5000/api/products`
+> Ensure both the frontend and backend share the same `.env` and use the same port.
 
 ---
 
-## 🎨 Frontend Setup (Next.js + Tailwind CSS)
-
-### 🔧 Install dependencies
+### ▶️ Run the app (frontend + backend)
 
 ```bash
-cd frontend
-npm install
+pnpm dev
 ```
 
-### ⚙️ Environment setup (`.env.local`)
-
-```
-NEXT_PUBLIC_API_URL=http://localhost:5000/api
-```
-
-### ▶️ Start the frontend dev server
-
-```bash
-npm run dev
-```
-
-App runs on: `http://localhost:3000`
+App and API run together at:  
+**Frontend:** `http://localhost:5000`  
+**API Base URL:** `http://localhost:5000/api/products`
 
 ---
 
 ## 🧪 Features
 
 - ✅ View product list with images
+- ➕ Add new product
 - ✏️ Edit product details inline
 - 🗑️ Delete products with confirmation
-- 🔄 Live update UI using React Context API (or internal state)
-- 🔔 Toast notifications for success and error actions
-- 🌙 Dark mode support via Tailwind CSS
+- 🔄 Live update UI using React Context API
+- 🔔 Toast notifications for success/error
+- 🌙 Dark mode with Tailwind CSS
 
 ---
 
 ## 🛠️ Future Enhancements
 
-- 🔒 Add user authentication (JWT)
+- 🔒 Add authentication with JWT
 - 🗃️ Paginate product listings
-- 📦 Product category filters
-- ☁️ Deploy on Vercel (Frontend) & Render/Heroku (Backend)
+- 📦 Add category filters
+- 📤 Deploy on:
+  - Vercel (Frontend)
+  - Render/Heroku (Backend API)
 
 ---
 
+## 📸 UI Snapshot
+
+![App UI](./frontend/public/preview.png)
+> Add your UI screenshot here if needed
+
+---
+
+## 📬 Feedback
+
+If you have feedback or find a bug, feel free to open an issue or submit a PR.
+
+---
